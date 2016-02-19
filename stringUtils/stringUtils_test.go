@@ -245,6 +245,18 @@ func TestIsAllUpperCase(t *testing.T) {
 	}
 }
 
+func TestIsAlpha(t *testing.T) {
+	if IsAlpha("f00b4r") != false {
+		t.Errorf("fail test IsAlpha 1")
+	}
+	if IsAlpha("foobar") != true {
+		t.Errorf("fail test IsAlpha 2")
+	}
+	if IsAlpha(" foo bar ") != false {
+		t.Errorf("fail test IsAlpha 3")
+	}
+}
+
 func TestOverlay(t *testing.T) {
 	if Overlay("", "abc", 0, 0) != "abc" {
 		t.Errorf("fail test Overlay 1")
