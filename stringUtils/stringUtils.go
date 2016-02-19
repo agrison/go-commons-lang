@@ -256,22 +256,22 @@ func IsAlphanumericSpace(str string) bool {
 	return true
 }
 
-// IsEmpty checks if the string is empty.
+// IsEmpty checks if a string is empty.
 func IsEmpty(s string) bool {
-	if len(s) == 0 {
+	if s == "" {
 		return true
 	}
 	return false
 }
 
-// IsNotEmpty checks if the string is not empty.
+// IsNotEmpty checks if a string is not empty.
 func IsNotEmpty(s string) bool {
 	return !IsEmpty(s)
 }
 
 // IsAnyEmpty checks if any one of the given strings are empty.
-func IsAnyEmpty(ss ...string) bool {
-	for _, s := range ss {
+func IsAnyEmpty(strings ...string) bool {
+	for _, s := range strings {
 		if IsEmpty(s) {
 			return true
 		}
@@ -280,8 +280,8 @@ func IsAnyEmpty(ss ...string) bool {
 }
 
 // IsNoneEmpty checks if none of the strings are empty.
-func IsNoneEmpty(ss ...string) bool {
-	for _, s := range ss {
+func IsNoneEmpty(strings ...string) bool {
+	for _, s := range strings {
 		if IsEmpty(s) {
 			return false
 		}
@@ -291,7 +291,7 @@ func IsNoneEmpty(ss ...string) bool {
 
 // IsBlank checks if a string is whitespace or empty
 func IsBlank(s string) bool {
-	if len(s) == 0 {
+	if s == "" {
 		return true
 	}
 	if regexp.MustCompile(`^\s+$`).MatchString(s) {
@@ -306,8 +306,8 @@ func IsNotBlank(s string) bool {
 }
 
 // IsAnyBlank checks if any one of the strings are empty or containing only whitespaces.
-func IsAnyBlank(ss ...string) bool {
-	for _, s := range ss {
+func IsAnyBlank(strings ...string) bool {
+	for _, s := range strings {
 		if IsBlank(s) {
 			return true
 		}
@@ -316,8 +316,8 @@ func IsAnyBlank(ss ...string) bool {
 }
 
 // IsNoneBlank checks if none of the strings are empty or containing only whitespaces.
-func IsNoneBlank(ss ...string) bool {
-	for _, s := range ss {
+func IsNoneBlank(strings ...string) bool {
+	for _, s := range strings {
 		if IsBlank(s) {
 			return false
 		}
