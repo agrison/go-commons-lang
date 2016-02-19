@@ -6,7 +6,8 @@
 [license]: https://github.com/agrison/go-commons-lang/blob/master/LICENSE
 [godocs]: https://godoc.org/github.com/agrison/go-commons-lang
 
-This is a port of the popular Java Apache Commons where it makes sense in Golang.
+This is a package aiming at regrouping common utilities where it makes sense in the Go language.
+It originated as a port of the popular Java Apache Commons StringUtils, but more will be added gradually.
 
 | Package | Description |
 | ------------- | ------------- |
@@ -30,6 +31,7 @@ func main() {
 	fmt.Print(strUtil.SwapCase(strUtil.Chomp(" fROM \n")))
 	fmt.Println(strUtil.ReverseDelimited(lib, "-") + strUtil.Right("Go!! ", 2))
 	// Output: Hello From go-commons-lang!
+  // See the doc for all the implemented utilities
 }
 ```
 
