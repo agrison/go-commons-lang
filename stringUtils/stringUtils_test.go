@@ -347,6 +347,63 @@ func TestIsWhitespace(t *testing.T) {
 	}
 }
 
+func TestJoin(t *testing.T) {
+	if Join([]string{"foo", "bar", "bazz"}, ".") != "foo.bar.bazz" {
+		t.Errorf("fail test Join 1")
+	}
+	if Join([]string{"foo"}, ".") != "foo" {
+		t.Errorf("fail test Join 2")
+	}
+	if Join([]string{}, ".") != "" {
+		t.Errorf("fail test Join 3")
+	}
+}
+
+func TestJoinBool(t *testing.T) {
+	if JoinBool([]bool{true, false, true}, ".") != "true.false.true" {
+		t.Errorf("fail test JoinBool 1")
+	}
+	if JoinBool([]bool{true, false, true}, "") != "truefalsetrue" {
+		t.Errorf("fail test JoinBool 2")
+	}
+	if JoinBool([]bool{true}, ".") != "true" {
+		t.Errorf("fail test JoinBool 3")
+	}
+	if JoinBool([]bool{}, ".") != "" {
+		t.Errorf("fail test JoinBool 4")
+	}
+}
+
+func TestJoinInt(t *testing.T) {
+	if JoinInt([]int{1, 2, 3}, ".") != "1.2.3" {
+		t.Errorf("fail test JoinInt 1")
+	}
+	if JoinInt([]int{1, 2, 3}, "") != "123" {
+		t.Errorf("fail test JoinInt 2")
+	}
+	if JoinInt([]int{1}, ".") != "1" {
+		t.Errorf("fail test JoinInt 3")
+	}
+	if JoinInt([]int{}, ".") != "" {
+		t.Errorf("fail test JoinInt 4")
+	}
+}
+
+func TestJoinFloat64(t *testing.T) {
+	if JoinFloat64([]float64{1.2, 2.3, 3.4}, ",") != "1.2,2.3,3.4" {
+		t.Errorf("fail test JoinFloat64 1")
+	}
+	if JoinFloat64([]float64{1.2, 2.3, 3.4}, "") != "1.22.33.4" {
+		t.Errorf("fail test JoinFloat64 2")
+	}
+	if JoinFloat64([]float64{1.}, ".") != "1" {
+		t.Errorf("fail test JoinFloat64 3")
+	}
+	if JoinFloat64([]float64{}, ".") != "" {
+		t.Errorf("fail test JoinFloat64 4")
+	}
+}
+
 func TestOverlay(t *testing.T) {
 	if Overlay("", "abc", 0, 0) != "abc" {
 		t.Errorf("fail test Overlay 1")
