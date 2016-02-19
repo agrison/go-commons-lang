@@ -1,5 +1,11 @@
 # go-commons-lang
 
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)][license]
+[![Go Documentation](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)][godocs]
+
+[license]: https://github.com/agrison/go-commons-lang/blob/master/LICENSE
+[godocs]: https://godoc.org/github.com/agrison/go-commons-lang
+
 This is a port of the popular Java Apache Commons where it makes sense in Golang.
 
 | Package | Description |
@@ -32,10 +38,6 @@ func main() {
 ```sh
 go get github.com/agrison/go-commons-lang
 ```
-
-## Documentation
-
-Can be seen at [https://godoc.org/github.com/agrison/go-commons-lang](https://godoc.org/github.com/agrison/go-commons-lang)
 
 ## Join
 
