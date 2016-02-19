@@ -42,3 +42,7 @@ go get github.com/agrison/go-commons-lang
 ## Join
 
 PRs are more than welcome :)
+
+## Author
+
+[Alexandre Grison](https://github.com/agrison) and obviously contributors to the original Apache Commons Lang.
