@@ -257,6 +257,18 @@ func TestIsAlpha(t *testing.T) {
 	}
 }
 
+func TestIsAlphaSpace(t *testing.T) {
+	if IsAlphaSpace("f00b4r") != false {
+		t.Errorf("fail test IsAlphaSpace 1")
+	}
+	if IsAlphaSpace("foobar") != true {
+		t.Errorf("fail test IsAlphaSpace 2")
+	}
+	if IsAlphaSpace(" foo bar ") != true {
+		t.Errorf("fail test IsAlphaSpace 3")
+	}
+}
+
 func TestOverlay(t *testing.T) {
 	if Overlay("", "abc", 0, 0) != "abc" {
 		t.Errorf("fail test Overlay 1")
