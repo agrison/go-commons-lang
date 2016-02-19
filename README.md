@@ -36,3 +36,7 @@ go get github.com/agrison/go-commons-lang
 ## Documentation
 
 Can be seen at [https://godoc.org/github.com/agrison/go-commons-lang](https://godoc.org/github.com/agrison/go-commons-lang)
+
+## Join
+
+PRs are more than welcome :)
