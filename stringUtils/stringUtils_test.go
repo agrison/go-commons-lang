@@ -185,6 +185,18 @@ func TestEndsWith(t *testing.T) {
 	}
 }
 
+func TestEndsWithIgnoreCase(t *testing.T) {
+	if EndsWithIgnoreCase("foobar", "bazz") != false {
+		t.Errorf("fail test EndsWithIgnoreCase 1")
+	}
+	if EndsWithIgnoreCase("foobar", "BAR") != true {
+		t.Errorf("fail test EndsWithIgnoreCase 2")
+	}
+	if EndsWithIgnoreCase("foobar", "bar") != true {
+		t.Errorf("fail test EndsWithIgnoreCase 3")
+	}
+}
+
 func TestIsAllLowerCase(t *testing.T) {
 	if IsAllLowerCase("") != false {
 		t.Errorf("fail test IsAllLowerCase 1")
