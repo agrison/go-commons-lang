@@ -59,6 +59,24 @@ func TestAbbreviateWithOffset(t *testing.T) {
 	}
 }
 
+func TestAppendIfMissing(t *testing.T) {
+	if AppendIfMissing("abc", "") != "abc" {
+		t.Errorf("fail test AppendIfMissing 1")
+	}
+	if AppendIfMissing("", "xyz") != "" {
+		t.Errorf("fail test AppendIfMissing 2")
+	}
+	if AppendIfMissing("abc", "xyz") != "abcxyz" {
+		t.Errorf("fail test AppendIfMissing 3")
+	}
+	if AppendIfMissing("abcxyz", "xyz") != "abcxyz" {
+		t.Errorf("fail test AppendIfMissing 4")
+	}
+	if AppendIfMissing("abcXYZ", "xyz") != "abcXYZxyz" {
+		t.Errorf("fail test AppendIfMissing 5")
+	}
+}
+
 func TestCapitalize(t *testing.T) {
 	if Capitalize("") != "" {
 		t.Errorf("fail test capitalize 1")
