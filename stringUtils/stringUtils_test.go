@@ -404,6 +404,51 @@ func TestJoinFloat64(t *testing.T) {
 	}
 }
 
+func TestLeft(t *testing.T) {
+	if Left("foobar", 3) != "foo" {
+		t.Errorf("fail test Left 1")
+	}
+	if Left("foobar", 10) != "foobar" {
+		t.Errorf("fail test Left 2")
+	}
+	if Left("foobar", -7) != "" {
+		t.Errorf("fail test Left 3")
+	}
+}
+
+func TestLowerCase(t *testing.T) {
+	if LowerCase("foobar") != "foobar" {
+		t.Errorf("fail test LowerCase 1")
+	}
+	if LowerCase("fOObar") != "foobar" {
+		t.Errorf("fail test LowerCase 2")
+	}
+	if LowerCase("fO0b4r") != "fo0b4r" {
+		t.Errorf("fail test LowerCase 3")
+	}
+}
+
+func TestMid(t *testing.T) {
+	if Mid("", 0, 10) != "" {
+		t.Errorf("fail test Mid 1")
+	}
+	if Mid("abc", 0, 2) != "ab" {
+		t.Errorf("fail test Mid 2")
+	}
+	if Mid("abc", 0, 4) != "abc" {
+		t.Errorf("fail test Mid 3")
+	}
+	if Mid("abc", 2, 4) != "c" {
+		t.Errorf("fail test Mid 4")
+	}
+	if Mid("abc", 4, 2) != "" {
+		t.Errorf("fail test Mid 5")
+	}
+	if Mid("abc", -2, 2) != "ab" {
+		t.Errorf("fail test Mid 6")
+	}
+}
+
 func TestOverlay(t *testing.T) {
 	if Overlay("", "abc", 0, 0) != "abc" {
 		t.Errorf("fail test Overlay 1")
