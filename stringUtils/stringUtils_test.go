@@ -77,6 +77,24 @@ func TestAppendIfMissing(t *testing.T) {
 	}
 }
 
+func TestAppendIfMissingIgnoreCase(t *testing.T) {
+	if AppendIfMissingIgnoreCase("abc", "") != "abc" {
+		t.Errorf("fail test AppendIfMissingIgnoreCase 1")
+	}
+	if AppendIfMissingIgnoreCase("", "xyz") != "" {
+		t.Errorf("fail test AppendIfMissingIgnoreCase 2")
+	}
+	if AppendIfMissingIgnoreCase("abc", "xyz") != "abcxyz" {
+		t.Errorf("fail test AppendIfMissingIgnoreCase 3")
+	}
+	if AppendIfMissingIgnoreCase("abcxyz", "xyz") != "abcxyz" {
+		t.Errorf("fail test AppendIfMissingIgnoreCase 4")
+	}
+	if AppendIfMissingIgnoreCase("abcXYZ", "xyz") != "abcXYZ" {
+		t.Errorf("fail test AppendIfMissingIgnoreCase 5")
+	}
+}
+
 func TestCapitalize(t *testing.T) {
 	if Capitalize("") != "" {
 		t.Errorf("fail test capitalize 1")
