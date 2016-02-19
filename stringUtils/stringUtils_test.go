@@ -329,6 +329,24 @@ func TestIsNumericSpace(t *testing.T) {
 	}
 }
 
+func TestIsWhitespace(t *testing.T) {
+	if IsWhitespace("f00b4r") != false {
+		t.Errorf("fail test IsWhitespace 1")
+	}
+	if IsWhitespace("foo bar") != false {
+		t.Errorf("fail test IsWhitespace 2")
+	}
+	if IsWhitespace("  ") != true {
+		t.Errorf("fail test IsWhitespace 3")
+	}
+	if IsWhitespace("") != true {
+		t.Errorf("fail test IsWhitespace 4")
+	}
+	if IsWhitespace("      ") != true {
+		t.Errorf("fail test IsWhitespace 5")
+	}
+}
+
 func TestOverlay(t *testing.T) {
 	if Overlay("", "abc", 0, 0) != "abc" {
 		t.Errorf("fail test Overlay 1")
