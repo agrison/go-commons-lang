@@ -8,7 +8,7 @@ This is a port of the popular Java Apache Commons where it makes sense in Golang
 | `randUtils` | [RandomUtils](http://commons.apache.org/proper/commons-lang/apidocs/index.html?org/apache/commons/lang3/StringUtils.html)  |
 | `mathUtils` | `Fraction` implementation of Apache Commons  |
 
-## Usage
+## Usage: `stringUtils`
 
 ```go
 package main
