@@ -669,7 +669,7 @@ func SwapCase(str string) string {
 	return buff
 }
 
-// Removes control characters from both ends of this string.
+// Trim removes control characters from both ends of this string.
 func Trim(str string) string {
 	return strings.Trim(str, " ")
 }
