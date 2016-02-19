@@ -1,3 +1,4 @@
+// Random utilities
 package randUtils
 
 import (

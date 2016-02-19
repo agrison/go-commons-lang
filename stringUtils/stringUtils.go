@@ -1,3 +1,4 @@
+// String utilities
 package stringUtils
 
 import (
