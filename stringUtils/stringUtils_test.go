@@ -173,6 +173,18 @@ func TestChop(t *testing.T) {
 	}
 }
 
+func TestEndsWith(t *testing.T) {
+	if EndsWith("foobar", "bazz") != false {
+		t.Errorf("fail test EndsWith 1")
+	}
+	if EndsWith("foobar", "BAR") != false {
+		t.Errorf("fail test EndsWith 2")
+	}
+	if EndsWith("foobar", "bar") != true {
+		t.Errorf("fail test EndsWith 3")
+	}
+}
+
 func TestIsAllLowerCase(t *testing.T) {
 	if IsAllLowerCase("") != false {
 		t.Errorf("fail test IsAllLowerCase 1")
