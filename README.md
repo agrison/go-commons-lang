@@ -45,4 +45,4 @@ PRs are more than welcome :)
 
 ## Author
 
-[Alexandre Grison](https://github.com/agrison) and obviously contributors to the original Apache Commons Lang.
+[Alexandre Grison](https://github.com/agrison) and obviously all the contributors of the original Apache Commons Lang.
