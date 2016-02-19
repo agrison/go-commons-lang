@@ -2,6 +2,24 @@ package stringUtils
 
 import "testing"
 
+func TestAbbreviate(t *testing.T) {
+	if Abbreviate("", 4) != "" {
+		t.Errorf("fail test abbreviate 1")
+	}
+	if Abbreviate("abcdefg", 6) != "abc..." {
+		t.Errorf("fail test abbreviate 2")
+	}
+	if Abbreviate("abcdefg", 7) != "abcdefg" {
+		t.Errorf("fail test abbreviate 2")
+	}
+	if Abbreviate("abcdefg", 8) != "abcdefg" {
+		t.Errorf("fail test abbreviate 3")
+	}
+	if Abbreviate("abcdefg", 4) != "a..." {
+		t.Errorf("fail test abbreviate 4")
+	}
+}
+
 func TestAbbreviateWithOffset(t *testing.T) {
 	if AbbreviateWithOffset("", 0, 4) != "" {
 		t.Errorf("fail test abbreviate 1")
