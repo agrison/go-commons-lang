@@ -199,13 +199,12 @@ func (f *Fraction) Pow(power int) *Fraction {
 			return f.Invert().Pow(2).Pow(-(power / 2))
 		}
 		return f.Invert().Pow(-power)
-	} else {
-		ff := f.MultiplyBy(f)
-		if power%2 == 0 {
-			return ff.Pow(power / 2)
-		}
-		return ff.Pow(power / 2).MultiplyBy(f)
 	}
+	ff := f.MultiplyBy(f)
+	if power%2 == 0 {
+		return ff.Pow(power / 2)
+	}
+	return ff.Pow(power / 2).MultiplyBy(f)
 }
 
 // MultiplyBy multiplies the value of this fraction by another, returning the result in reduced form.
