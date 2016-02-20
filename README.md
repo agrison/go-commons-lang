@@ -2,9 +2,11 @@
 
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)][license]
 [![Go Documentation](http://img.shields.io/badge/go-documentation-blue.svg?style=flat-square)][godocs]
+[![Go Report Card](https://goreportcard.com/badge/github.com/agrison/go-commons-lang)][goreportcard]
 
 [license]: https://github.com/agrison/go-commons-lang/blob/master/LICENSE
 [godocs]: https://godoc.org/github.com/agrison/go-commons-lang
+[goreportcard]: https://goreportcard.com/report/github.com/agrison/go-commons-lang
 
 This is a package aiming at regrouping common utilities where it makes sense in the Go language.
 It originated as a port of the popular Java Apache Commons StringUtils, but more will be added gradually.
