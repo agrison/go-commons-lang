@@ -12,6 +12,7 @@ It originated as a port of the popular Java Apache Commons StringUtils, but more
 | Package | Description |
 | ------------- | ------------- |
 | `stringUtils` | String Utilities reflecting what's available in [StringUtils](http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html) |
+| `wordUtils` | String Utilities regarding words [WordUtils](http://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/text/WordUtils.html) |
 | `randUtils` | [RandomUtils](http://commons.apache.org/proper/commons-lang/apidocs/index.html?org/apache/commons/lang3/StringUtils.html)  |
 | `mathUtils` | `Fraction` implementation of Apache Commons  |
 
