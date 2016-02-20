@@ -67,3 +67,24 @@ func TestSwapCase(t *testing.T) {
 		t.Errorf("fail test SwapCase 2")
 	}
 }
+
+func TestUncapitalize(t *testing.T) {
+	if Uncapitalize("") != "" {
+		t.Errorf("fail test Uncapitalize 1")
+	}
+	if Uncapitalize("I Am FINE") != "i am fINE" {
+		t.Errorf("fail test Uncapitalize 2")
+	}
+}
+
+func TestUncapitalizeDelimited(t *testing.T) {
+	if UncapitalizeDelimited("", "") != "" {
+		t.Errorf("fail test UncapitalizeDelimited 1")
+	}
+	if UncapitalizeDelimited("I Am Fine", " ") != "i am fine" {
+		t.Errorf("fail test UncapitalizeDelimited 2")
+	}
+	if UncapitalizeDelimited("I AM.FINE", ".") != "i AM.fINE" {
+		t.Errorf("fail test UncapitalizeDelimited 3")
+	}
+}

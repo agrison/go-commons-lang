@@ -20,12 +20,7 @@ func isDelimiter(c rune, delimiters ...string) bool {
 	return false
 }
 
-// Capitalizes all the delimiter separated words in a String. Only the first letter of each word is changed. To convert the
-// rest of each word to lowercase at the same time.
-//
-// The delimiters represent a set of characters understood to separate words.
-// The first string character and the first non-delimiter character after a
-// delimiter will be capitalized.
+// Capitalizes all the whitespace separated words in a String. Only the first letter of each word is changed.
 func Capitalize(str string) string {
 	return CapitalizeDelimited(str, nil...)
 }
@@ -132,4 +127,30 @@ func SwapCase(str string) string {
 		}
 	}
 	return string(buff)
+}
+
+// Uncapitalizes all the whitespace separated words in a string. Only the first letter of each word is changed.
+func Uncapitalize(str string) string {
+	return UncapitalizeDelimited(str, nil...)
+}
+
+// Uncapitalizes all the whitespace separated words in a String. Only the first letter of each word is changed.
+//
+// The delimiters represent a set of characters understood to separate words.
+// The first string character and the first non-delimiter character after a delimiter will be uncapitalized.
+func UncapitalizeDelimited(str string, delimiters ...string) string {
+	if str == "" || (delimiters != nil && len(delimiters) == 0) {
+		return str
+	}
+	buff := []rune(str)
+	uncapitalizeNext := true
+	for i, c := range buff {
+		if isDelimiter(c, delimiters...) {
+			uncapitalizeNext = true
+		} else if uncapitalizeNext {
+			buff[i] = unicode.ToLower(c)
+			uncapitalizeNext = false
+		}
+	}
+	return string(buff[:])
 }
