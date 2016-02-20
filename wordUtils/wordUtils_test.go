@@ -58,3 +58,12 @@ func TestInitialsDelimited(t *testing.T) {
 		t.Errorf("fail test InitialsDelimited 2")
 	}
 }
+
+func TestSwapCase(t *testing.T) {
+	if SwapCase("") != "" {
+		t.Errorf("fail test SwapCase 1")
+	}
+	if SwapCase("The dog has a BONE") != "tHE DOG HAS A bone" {
+		t.Errorf("fail test SwapCase 2")
+	}
+}
