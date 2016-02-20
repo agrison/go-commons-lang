@@ -66,3 +66,37 @@ func ContainsAllWords(str string, words ...string) bool {
 	}
 	return found == len(words)
 }
+
+// Extracts the initial letters from each word in the String.
+//
+// The first letter of the string and all first letters after the
+// defined delimiters are returned as a new string.
+// Their case is not changed.
+func Initials(str string) string {
+	return InitialsDelimited(str, nil...)
+}
+
+// Extracts the initial letters from each word in the String.
+//
+// The first letter of the string and all first letters after the
+// defined delimiters are returned as a new string.
+// Their case is not changed.
+func InitialsDelimited(str string, delimiters ...string) string {
+	if str == "" || (delimiters != nil && len(delimiters) == 0) {
+		return str
+	}
+	strLen := len(str)
+	buff := make([]rune, strLen/2+1)
+	count := 0
+	lastWasGap := true
+	for _, ch := range str {
+		if isDelimiter(ch, delimiters...) {
+			lastWasGap = true
+		} else if lastWasGap {
+			buff[count] = ch
+			count += 1
+			lastWasGap = false
+		}
+	}
+	return string(buff[:count])
+}

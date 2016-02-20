@@ -1,6 +1,9 @@
 package wordUtils
 
-import "testing"
+import (
+	_ "fmt"
+	"testing"
+)
 
 func TestCapitalize(t *testing.T) {
 	if Capitalize("") != "" {
@@ -32,5 +35,26 @@ func TestContainsAllWords(t *testing.T) {
 	}
 	if ContainsAllWords("abc def", "def", "abc") != true {
 		t.Errorf("fail test ContainsAllWords 3")
+	}
+}
+
+func TestInitials(t *testing.T) {
+	if Initials("") != "" {
+		t.Errorf("fail test Initials 1")
+	}
+	if Initials("Ben John Lee") != "BJL" {
+		t.Errorf("fail test Initials 2")
+	}
+	if Initials("Ben J.Lee") != "BJ" {
+		t.Errorf("fail test Initials 3")
+	}
+}
+
+func TestInitialsDelimited(t *testing.T) {
+	if InitialsDelimited("", "") != "" {
+		t.Errorf("fail test InitialsDelimited 1")
+	}
+	if InitialsDelimited("Ben J.Lee", " ", ".") != "BJL" {
+		t.Errorf("fail test InitialsDelimited 2")
 	}
 }
