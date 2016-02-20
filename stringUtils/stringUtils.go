@@ -1,4 +1,4 @@
-// String utilities
+// Package stringUtils provides various string utilities.
 package stringUtils
 
 import (

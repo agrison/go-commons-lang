@@ -1,4 +1,4 @@
-// Random utilities
+// Package randUtils provides some utilities regarding random numbers.
 package randUtils
 
 import (

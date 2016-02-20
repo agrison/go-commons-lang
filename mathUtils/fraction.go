@@ -1,10 +1,12 @@
-package math
+// Package mathUtils provides utilities regarding mathematics.
+package mathUtils
 
 import (
 	"math"
 	"math/big"
 )
 
+// Definitely needs testing!
 type Fraction struct {
 	// The numerator number part of the fraction (the three in three sevenths).
 	numerator int

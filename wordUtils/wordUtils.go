@@ -1,3 +1,4 @@
+// Package wordUtils provides some string utilities regarding words.
 package wordUtils
 
 import (
