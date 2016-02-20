@@ -6,6 +6,7 @@ import (
 	"math/big"
 )
 
+// Fraction represents a fraction which holds both a numerator and a denominator
 // Definitely needs testing!
 type Fraction struct {
 	// The numerator number part of the fraction (the Three in Three sevenths).
@@ -20,7 +21,7 @@ var Zero = NewFraction(0, 1)
 // One is 1/1
 var One = NewFraction(1, 1)
 
-// OneHafl is 1/2
+// OneHalf is 1/2
 var OneHalf = NewFraction(1, 2)
 
 // OneThird is 1/3
@@ -143,9 +144,8 @@ func (f *Fraction) Reduce() *Fraction {
 	if f.numerator == 0 {
 		if f.Equals(Zero) {
 			return f
-		} else {
-			return Zero
 		}
+		return Zero
 	}
 	gcd := greatestCommonDivisor(int(math.Abs(float64(f.numerator))), f.denominator)
 	if gcd == 1 {
@@ -203,9 +203,8 @@ func (f *Fraction) Pow(power int) *Fraction {
 		ff := f.MultiplyBy(f)
 		if power%2 == 0 {
 			return ff.Pow(power / 2)
-		} else {
-			return ff.Pow(power / 2).MultiplyBy(f)
 		}
+		return ff.Pow(power / 2).MultiplyBy(f)
 	}
 }
 
@@ -301,7 +300,7 @@ func greatestCommonDivisor(u, v int) int {
 	for (u&1) == 0 && (v&1) == 0 && k < 31 { // while u and v are both even...
 		u = u / 2 // cast out Twos.
 		v = v / 2
-		k += 1
+		k++
 	}
 	if k == 31 {
 		panic("gcd is 2^31")
@@ -379,9 +378,8 @@ func addSub(f *Fraction, ff *Fraction, isAdd bool) *Fraction {
 	if f.numerator == 0 {
 		if isAdd {
 			return ff
-		} else {
-			return ff.Negate()
 		}
+		return ff.Negate()
 	}
 	if ff.numerator == 0 {
 		return f
@@ -395,9 +393,8 @@ func addSub(f *Fraction, ff *Fraction, isAdd bool) *Fraction {
 		upv := mulAndCheck(ff.numerator, f.denominator)
 		if isAdd {
 			return NewFraction(addAndCheck(uvp, upv), mulPosAndCheck(f.denominator, ff.denominator))
-		} else {
-			return NewFraction(subAndCheck(uvp, upv), mulPosAndCheck(f.denominator, ff.denominator))
 		}
+		return NewFraction(subAndCheck(uvp, upv), mulPosAndCheck(f.denominator, ff.denominator))
 	}
 	// the quantity 't' requires 65 bits of precision; see knuth 4.5.1
 	// exercise 7.  we're going to use a BigInteger.

@@ -151,6 +151,7 @@ func ContainsNone(str string, search ...string) bool {
 	return !ContainsAny(str, search...)
 }
 
+// ContainsNoneCharacter checks if the string contains no occurrence of searched string.
 func ContainsNoneCharacter(str string, search string) bool {
 	return !ContainsAnyCharacter(str, search)
 }
@@ -164,6 +165,7 @@ func stringInSlice(a string, list []string) bool {
 	return false
 }
 
+// ContainsOnly checks if a string contains only some strings.
 func ContainsOnly(str string, search ...string) bool {
 	for _, c := range str {
 		if !stringInSlice((string)(c), search) {
@@ -374,7 +376,7 @@ func JoinFloat64(a []float64, sep string) string {
 	return JoinFloat64WithFormatAndPrecision(a, 'G', 32, sep)
 }
 
-// JoinFloat64 is the same as Join but joining float64 with a custom precision (bitSize) and format.
+// JoinFloat64WithFormatAndPrecision is the same as Join but joining float64 with a custom precision (bitSize) and format.
 func JoinFloat64WithFormatAndPrecision(a []float64, fmt byte, precision int, sep string) string {
 	strs := make([]string, len(a), len(a))
 	for idx, i := range a {
@@ -703,9 +705,8 @@ func internalStartsWith(str string, prefix string, ignoreCase bool) bool {
 	}
 	if ignoreCase {
 		return strings.HasPrefix(strings.ToLower(str), strings.ToLower(prefix))
-	} else {
-		return strings.HasPrefix(str, prefix)
 	}
+	return strings.HasPrefix(str, prefix)
 }
 
 // StartsWith check if a string starts with a specified prefix.
@@ -728,6 +729,7 @@ func StartsWithAny(str string, prefixes ...string) bool {
 	return false
 }
 
+// StartsWithAnyIgnoreCase check if a string starts with any of an array of specified strings (ignoring case).
 func StartsWithAnyIgnoreCase(str string, prefixes ...string) bool {
 	for _, prefix := range prefixes {
 		if internalStartsWith(str, (string)(prefix), true) {
@@ -771,6 +773,7 @@ func EndsWithAny(str string, suffixes ...string) bool {
 	return false
 }
 
+// EndsWithAnyIgnoreCase check if a string ends with any of an array of specified strings (ignoring case).
 func EndsWithAnyIgnoreCase(str string, suffixes ...string) bool {
 	for _, suffix := range suffixes {
 		if internalEndsWith(str, (string)(suffix), true) {

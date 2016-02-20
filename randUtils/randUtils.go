@@ -41,7 +41,7 @@ func NextIntBounded(start int, end int) int {
 	return start + rand.Intn(end)
 }
 
-// NextIntBounded returns the next int bounded by a maximum.
+// NextIntUpperBounded returns the next int bounded by a maximum.
 func NextIntUpperBounded(end int) int {
 	return rand.Intn(end)
 }
