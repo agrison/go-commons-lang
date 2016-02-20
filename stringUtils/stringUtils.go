@@ -112,9 +112,8 @@ func Chop(str string) string {
 	sc := Chomp(str)
 	if len(str) > len(sc) {
 		return sc
-	} else {
-		return str[0 : len(str)-1]
 	}
+	return str[0 : len(str)-1]
 }
 
 // Contains checks if string contains a search string.
@@ -147,7 +146,7 @@ func ContainsIgnoreCase(str string, search string) bool {
 	return strings.Contains(strings.ToLower(str), strings.ToLower(search))
 }
 
-// ContainsNone checks if the string contains no occurence of searched string.
+// ContainsNone checks if the string contains no occurrence of searched string.
 func ContainsNone(str string, search ...string) bool {
 	return !ContainsAny(str, search...)
 }
@@ -581,7 +580,7 @@ func Reverse(s string) string {
 	return string(r)
 }
 
-// Reverse reverses a string separated by a delimiter.
+// ReverseDelimited reverses a string separated by a delimiter.
 func ReverseDelimited(str string, del string) string {
 	s := strings.Split(str, del)
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
@@ -694,7 +693,7 @@ func Wrap(str string, wrapWith string) string {
 	return wrapWith + str + wrapWith
 }
 
-// Internal method to check if a string starts with a specified prefix ignoring case or not.
+// internalStartsWith internal method to check if a string starts with a specified prefix ignoring case or not.
 func internalStartsWith(str string, prefix string, ignoreCase bool) bool {
 	if str == "" || prefix == "" {
 		return (str == "" && prefix == "")
@@ -709,17 +708,17 @@ func internalStartsWith(str string, prefix string, ignoreCase bool) bool {
 	}
 }
 
-// Check if a string starts with a specified prefix.
+// StartsWith check if a string starts with a specified prefix.
 func StartsWith(str string, prefix string) bool {
 	return internalStartsWith(str, prefix, false)
 }
 
-// Case insensitive check if a string starts with a specified prefix.
+// StartsWithIgnoreCase case insensitive check if a string starts with a specified prefix.
 func StartsWithIgnoreCase(str string, prefix string) bool {
 	return internalStartsWith(str, prefix, true)
 }
 
-// Check if a string starts with any of an array of specified strings.
+// StartsWithAny check if a string starts with any of an array of specified strings.
 func StartsWithAny(str string, prefixes ...string) bool {
 	for _, prefix := range prefixes {
 		if internalStartsWith(str, (string)(prefix), false) {
@@ -748,22 +747,21 @@ func internalEndsWith(str string, suffix string, ignoreCase bool) bool {
 	}
 	if ignoreCase {
 		return strings.HasSuffix(strings.ToLower(str), strings.ToLower(suffix))
-	} else {
-		return strings.HasSuffix(str, suffix)
 	}
+	return strings.HasSuffix(str, suffix)
 }
 
-// Check if a string ends with a specified suffix.
+// EndsWith check if a string ends with a specified suffix.
 func EndsWith(str string, suffix string) bool {
 	return internalEndsWith(str, suffix, false)
 }
 
-// Case insensitive check if a string ends with a specified suffix.
+// EndsWithIgnoreCase case insensitive check if a string ends with a specified suffix.
 func EndsWithIgnoreCase(str string, suffix string) bool {
 	return internalEndsWith(str, suffix, true)
 }
 
-// Check if a string ends with any of an array of specified strings.
+// EndsWithAny check if a string ends with any of an array of specified strings.
 func EndsWithAny(str string, suffixes ...string) bool {
 	for _, suffix := range suffixes {
 		if internalEndsWith(str, (string)(suffix), false) {

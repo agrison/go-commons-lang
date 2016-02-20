@@ -2,9 +2,7 @@
 package wordUtils
 
 import (
-	_ "bytes"
 	"regexp"
-	//"strings"
 	"unicode"
 )
 
@@ -21,12 +19,12 @@ func isDelimiter(c rune, delimiters ...string) bool {
 	return false
 }
 
-// Capitalizes all the whitespace separated words in a String. Only the first letter of each word is changed.
+// Capitalize capitalizes all the whitespace separated words in a String. Only the first letter of each word is changed.
 func Capitalize(str string) string {
 	return CapitalizeDelimited(str, nil...)
 }
 
-// Capitalizes all the delimiter separated words in a String. Only the first letter of each word is changed. To convert the
+// CapitalizeDelimited capitalizes all the delimiter separated words in a String. Only the first letter of each word is changed. To convert the
 // rest of each word to lowercase at the same time.
 //
 // The delimiters represent a set of characters understood to separate words.
@@ -57,13 +55,13 @@ func ContainsAllWords(str string, words ...string) bool {
 	found := 0
 	for _, word := range words {
 		if regexp.MustCompile(`.*\b` + word + `\b.*`).MatchString(str) {
-			found += 1
+			found++
 		}
 	}
 	return found == len(words)
 }
 
-// Extracts the initial letters from each word in the String.
+// Initials extracts the initial letters from each word in the String.
 //
 // The first letter of the string and all first letters after the
 // defined delimiters are returned as a new string.
@@ -72,7 +70,7 @@ func Initials(str string) string {
 	return InitialsDelimited(str, nil...)
 }
 
-// Extracts the initial letters from each word in the String.
+// InitialsDelimited extracts the initial letters from each word in the String.
 //
 // The first letter of the string and all first letters after the
 // defined delimiters are returned as a new string.
@@ -90,14 +88,14 @@ func InitialsDelimited(str string, delimiters ...string) string {
 			lastWasGap = true
 		} else if lastWasGap {
 			buff[count] = ch
-			count += 1
+			count++
 			lastWasGap = false
 		}
 	}
 	return string(buff[:count])
 }
 
-// Swaps the case of a String using a word based algorithm.
+// SwapCase swaps the case of a String using a word based algorithm.
 //
 // Upper case character converts to Lower case.
 // Title case character converts to Lower case.
@@ -127,12 +125,12 @@ func SwapCase(str string) string {
 	return string(buff)
 }
 
-// Uncapitalizes all the whitespace separated words in a string. Only the first letter of each word is changed.
+// Uncapitalize uncapitalizes all the whitespace separated words in a string. Only the first letter of each word is changed.
 func Uncapitalize(str string) string {
 	return UncapitalizeDelimited(str, nil...)
 }
 
-// Uncapitalizes all the whitespace separated words in a String. Only the first letter of each word is changed.
+// UncapitalizeDelimited uncapitalizes all the whitespace separated words in a String. Only the first letter of each word is changed.
 //
 // The delimiters represent a set of characters understood to separate words.
 // The first string character and the first non-delimiter character after a delimiter will be uncapitalized.
