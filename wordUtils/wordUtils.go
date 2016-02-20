@@ -99,13 +99,10 @@ func InitialsDelimited(str string, delimiters ...string) string {
 
 // Swaps the case of a String using a word based algorithm.
 //
-// Upper case character converts to Lower case
-//
-// Title case character converts to Lower case
-//
-// Lower case character after Whitespace or at start converts to Title case
-//
-// Other Lower case character converts to Upper case
+// Upper case character converts to Lower case.
+// Title case character converts to Lower case.
+// Lower case character after Whitespace or at start converts to Title case.
+// Other Lower case character converts to Upper case.
 func SwapCase(str string) string {
 	if str == "" {
 		return str
