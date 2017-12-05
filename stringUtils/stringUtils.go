@@ -782,3 +782,11 @@ func EndsWithAnyIgnoreCase(str string, suffixes ...string) bool {
 	}
 	return false
 }
+
+// Returns either the passed in String, or if the String is Empty, the value of defaultStr.
+func DefaultString(str string, defaultStr string) string {
+	if str == "" {
+		return defaultStr
+	}
+	return str
+}
