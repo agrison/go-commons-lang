@@ -534,10 +534,16 @@ func TestSubstrings(t *testing.T) {
 	if SubstringAfter("abc.def.ghi", ".") != "def.ghi" {
 		t.Errorf("fail test SubstringAfter 1")
 	}
+	if SubstringAfter("abc._.def._.ghi", "._.") != "def._.ghi" {
+		t.Errorf("fail test SubstringAfter 1")
+	}
 	if SubstringAfter("abc.def", "g") != "abc.def" {
 		t.Errorf("fail test SubstringAfter 2")
 	}
 	if SubstringAfterLast("abc.def.ghi", ".") != "ghi" {
+		t.Errorf("fail test SubstringAfterLast 1")
+	}
+	if SubstringAfterLast("abc._.def._.ghi", "._.") != "ghi" {
 		t.Errorf("fail test SubstringAfterLast 1")
 	}
 }
