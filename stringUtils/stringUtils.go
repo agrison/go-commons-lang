@@ -623,7 +623,7 @@ func SubstringAfter(str string, sep string) string {
 	if idx == -1 {
 		return str
 	}
-	return str[idx+1:]
+	return str[idx+len(sep):]
 }
 
 // SubstringAfterLast gets the substring after the last occurrence of a separator.
@@ -632,7 +632,7 @@ func SubstringAfterLast(str string, sep string) string {
 	if idx == -1 {
 		return str
 	}
-	return str[idx+1:]
+	return str[idx+len(sep):]
 }
 
 // SubstringBefore gets the substring before the first occurrence of a separator.
