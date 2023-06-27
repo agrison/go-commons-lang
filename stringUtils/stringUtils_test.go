@@ -571,3 +571,75 @@ func TestUncapitalize(t *testing.T) {
 		t.Errorf("fail test Uncapitalize 3")
 	}
 }
+
+func TestPrependIfMissing(t *testing.T) {
+	if PrependIfMissing("", "") != "" {
+		t.Errorf("fail test PrependIfMissing 1")
+	}
+	if PrependIfMissing("abc", "") != "abc" {
+		t.Errorf("fail test PrependIfMissing 2")
+	}
+	if PrependIfMissing("", "xyz") != "xyz" {
+		t.Errorf("fail test PrependIfMissing 3")
+	}
+	if PrependIfMissing("abc", "xyz") != "xyzabc" {
+		t.Errorf("fail test PrependIfMissing 4")
+	}
+	if PrependIfMissing("xyzabc", "xyz") != "xyzabc" {
+		t.Errorf("fail test PrependIfMissing 5")
+	}
+	if PrependIfMissing("XYZabc", "xyz") != "xyzXYZabc" {
+		t.Errorf("fail test PrependIfMissing 6")
+	}
+	if PrependIfMissing("abc", "xyz", "") != "abc" {
+		t.Errorf("fail test PrependIfMissing 7")
+	}
+	if PrependIfMissing("abc", "xyz", "mno") != "xyzabc" {
+		t.Errorf("fail test PrependIfMissing 8")
+	}
+	if PrependIfMissing("mnoabc", "xyz", "mno") != "mnoabc" {
+		t.Errorf("fail test PrependIfMissing 9")
+	}
+	if PrependIfMissing("XYZabc", "xyz", "mno") != "xyzXYZabc" {
+		t.Errorf("fail test PrependIfMissing 10")
+	}
+	if PrependIfMissing("MNOabc", "xyz", "mno") != "xyzMNOabc" {
+		t.Errorf("fail test PrependIfMissing 11")
+	}
+}
+
+func TestPrependIfMissingIgnoreCase(t *testing.T) {
+	if PrependIfMissingIgnoreCase("", "") != "" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 1")
+	}
+	if PrependIfMissingIgnoreCase("abc", "") != "abc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 2")
+	}
+	if PrependIfMissingIgnoreCase("", "xyz") != "xyz" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 3")
+	}
+	if PrependIfMissingIgnoreCase("abc", "xyz") != "xyzabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 4")
+	}
+	if PrependIfMissingIgnoreCase("xyzabc", "xyz") != "xyzabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 5")
+	}
+	if PrependIfMissingIgnoreCase("XYZabc", "xyz") != "XYZabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 6")
+	}
+	if PrependIfMissingIgnoreCase("abc", "xyz", "") != "abc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 7")
+	}
+	if PrependIfMissingIgnoreCase("abc", "xyz", "mno") != "xyzabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 8")
+	}
+	if PrependIfMissingIgnoreCase("mnoabc", "xyz", "mno") != "mnoabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 9")
+	}
+	if PrependIfMissingIgnoreCase("XYZabc", "xyz", "mno") != "XYZabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 10")
+	}
+	if PrependIfMissingIgnoreCase("MNOabc", "xyz", "mno") != "MNOabc" {
+		t.Errorf("fail test PrependIfMissingIgnoreCase 11")
+	}
+}
