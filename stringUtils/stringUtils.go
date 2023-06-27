@@ -790,3 +790,28 @@ func DefaultString(str string, defaultStr string) string {
 	}
 	return str
 }
+
+
+// prependIfMissing prepends the prefix to the start of the string if the string does not already start with any of the prefixes.
+func prependIfMissing(str string, prefix string, ignoreCase bool, prefixes ...string) string {
+    if IsEmpty(prefix) || internalStartsWith(str, prefix, ignoreCase) {
+		return str
+	}
+	for _, pref := range prefixes {
+		if pref == "" || internalStartsWith(str, pref, ignoreCase) {
+			return str
+		}
+	}
+	return prefix + str
+}
+
+// PrependIfMissing prepends the prefix to the start of the string if the string does not already start with any of the prefixes.
+func PrependIfMissing(str string, prefix string, prefixes ...string) string {
+	return prependIfMissing(str, prefix, false, prefixes...)
+}
+
+
+// PrependIfMissing prepends the prefix to the start of the string if the string does not already start, case-insensitive, with any of the prefixes.
+func PrependIfMissingIgnoreCase(str string, prefix string, prefixes ...string) string {
+	return prependIfMissing(str, prefix, true, prefixes...)
+}
