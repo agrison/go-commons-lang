@@ -59,7 +59,7 @@ func internalAppendIfMissing(str string, suffix string, ignoreCase bool, suffixe
 		}
 
 		for _, suffix := range suffixes {
-			if EndsWithIgnoreCase(str, (string)(suffix)) {
+			if EndsWith(str, (string)(suffix)) {
 				return str
 			}
 		}
@@ -791,10 +791,9 @@ func DefaultString(str string, defaultStr string) string {
 	return str
 }
 
-
 // prependIfMissing prepends the prefix to the start of the string if the string does not already start with any of the prefixes.
 func prependIfMissing(str string, prefix string, ignoreCase bool, prefixes ...string) string {
-    if IsEmpty(prefix) || internalStartsWith(str, prefix, ignoreCase) {
+	if IsEmpty(prefix) || internalStartsWith(str, prefix, ignoreCase) {
 		return str
 	}
 	for _, pref := range prefixes {
@@ -809,7 +808,6 @@ func prependIfMissing(str string, prefix string, ignoreCase bool, prefixes ...st
 func PrependIfMissing(str string, prefix string, prefixes ...string) string {
 	return prependIfMissing(str, prefix, false, prefixes...)
 }
-
 
 // PrependIfMissing prepends the prefix to the start of the string if the string does not already start, case-insensitive, with any of the prefixes.
 func PrependIfMissingIgnoreCase(str string, prefix string, prefixes ...string) string {
